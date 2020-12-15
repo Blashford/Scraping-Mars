@@ -3,10 +3,13 @@ from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
 
-executable_path = {"executable_path": "C:/Users/ashfo/Documents/bootcamp_homework/chromedriver.exe"}
-browser = Browser("chrome", **executable_path, headless=False)
+
 
 def scrape():
+    executable_path = {"executable_path": "C:/Users/ashfo/Documents/bootcamp_homework/chromedriver.exe"}
+    browser = Browser("chrome", **executable_path, headless=False)
+
+
     url = "https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
     browser.visit(url)
     time.sleep(1)
@@ -38,7 +41,6 @@ def scrape():
     html = browser.html
     soup = bs(html, "html.parser")
     df = pd.read_html(url)[0]
-    df[0] = [f'<b>{x}</b>' for x in df[0]]
     html_table = df.to_html(index = False, header = False)
 
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"

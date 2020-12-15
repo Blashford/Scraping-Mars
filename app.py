@@ -1,12 +1,12 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-import scrape-mars
+import scrape_mars
 
 app = Flask(__name__)
 
 
 mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
-collection = db.mars
+collection = mongo.db.mars
 
 @app.route("/")
 def index():
@@ -14,7 +14,7 @@ def index():
     return render_template("index.html", mars=mars_data)
 
 @app.route("/scrape")
-def scrape_mars():
+def scrape_m():
     mars_data = scrape_mars.scrape()
 
     collection.update(

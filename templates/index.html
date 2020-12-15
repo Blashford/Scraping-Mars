@@ -17,18 +17,18 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Latest Mars News</h3>
-                    <p><strong>news_title goes here</strong></p>
-                    <p>news teaser goes here</p>
+                    <p><strong>{{ mars.news_title }}</strong></p>
+                    <p>{{ mars.news_p }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8">
                     <h3>Featured Mars Image</h3>
-                    <p>mars image goes here</p>
+                    <img src="{{ mars.featured_img }}" class="img-fluid">
                 </div>
                 <div class="col-lg-4">
                     <h5>Mars Facts</h5>
-                    <p>table goes here</p>
+                    {{ mars.table }}
                 </div>
             </div>
             <div class="row">
@@ -39,18 +39,38 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <p>valles marineris hemisphere goes here</p>
+                    <div class="card mb-3">
+                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
+                        </div>
+                      </div>
                 </div>
                 <div class="col-lg-6">
-                    <p>Cerberus hemisphere goes here</p>
+                    <div class="card mb-3">
+                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
+                        </div>
+                      </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <p>Schiaparelli hemisphere goes here</p>
+                    <div class="card mb-3">
+                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
+                        </div>
+                      </div>
                 </div>
                 <div class="col-lg-6">
-                    <p>Syrtis Major hemisphere goes here</p>
+                    <div class="card mb-3">
+                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
