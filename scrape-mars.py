@@ -22,7 +22,6 @@ def scrape():
     time.sleep(1)
     html = browser.html
     soup = bs(html, "html.parser")
-
     imagesoup = soup.find("a", id="full_image")["data-link"]
     base_url = "https://www.jpl.nasa.gov"
     rel_url = base_url + imagesoup
@@ -62,3 +61,15 @@ def scrape():
         hemisphere_img_urls.append(dicty)
         browser.visit(url)
         time.sleep(1)
+
+    browser.quit()
+
+    scrape_dicty = {
+        "news_title": news_title,
+        "news_p": news_p,
+        "featured_img": featured_img_url,
+        "table": html_table,
+        "hemispheres": hemisphere_img_urls
+    }
+
+    return scrape_dicty
