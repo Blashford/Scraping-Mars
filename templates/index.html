@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-lg-4">
                     <h5>Mars Facts</h5>
-                    {{ mars.table }}
+                    {{ mars.table | safe }}
                 </div>
             </div>
             <div class="row">
@@ -38,40 +38,16 @@
                 </div>
             </div>
             <div class="row">
+                {% for hemisphere in mars.hemispheres %}
                 <div class="col-lg-6">
                     <div class="card mb-3">
-                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
+                        <img src="{{ hemisphere.img_url }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
+                          <h5 class="card-title">{{ hemisphere.title }}</h5>
                         </div>
                       </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card mb-3">
-                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
-                        </div>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card mb-3">
-                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card mb-3">
-                        <img src="{{ mars.hemispheres.img_url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ mars.hemispheres.title }}</h5>
-                        </div>
-                      </div>
-                </div>
+                  </div>
+                {% endfor %}
             </div>
         </div>
     </body>
