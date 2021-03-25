@@ -30,18 +30,20 @@ def scrape():
     html = browser.html
     soup = bs(html, "html.parser")
     # Here we grab the contents of a specific attribute, but it is only part of the full url needed for the image
-    imagesoup = soup.find("a", id="full_image")["data-link"]
+    imagesoup = soup.find("div", page_score="1").a["href"]
+    print(soup.find("div", page_score="1").a["href"])
     # So we have this base url to complete it and add them together then visit that url and sleep
     base_url = "https://www.jpl.nasa.gov"
     rel_url = base_url + imagesoup
+    print(rel_url)
     browser.visit(rel_url)
     time.sleep(1)
     # Since we're on a new page now we have to grab and parse the html again
     html = browser.html
     soup = bs(html, "html.parser")
     # Then we find the path to the image that we want, which is also only a partial path so we have to add it to the base url
-    img = soup.find("figure", class_="lede").a["href"]
-    featured_img_url = base_url + img
+    featured_img_url = soup.find("img", class_="BaseImage")["src"]
+     
 
     # Get url, visit, sleep, and parse
     url = "https://space-facts.com/mars/"
